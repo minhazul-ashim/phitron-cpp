@@ -13,7 +13,7 @@ class Node {
     }
 };
 
-void print_normal (Node * head) {
+void printLinkedList (Node * head) {
     Node *temp = head;
     while(temp != NULL) {
         cout << temp->value << " ";
@@ -53,7 +53,7 @@ void insert_head (Node *& head, Node *& tail, int v) {
     head = newNode;
 }
 
-void insert_tail(Node *& head, Node *&tail, int v) {
+void insertTail(Node *& head, Node *&tail, int v) {
 
     Node *newNode = new Node(v);
     if(tail == NULL) {
@@ -70,7 +70,7 @@ void insert_any_position(Node *& head, Node *& tail, int v, int pos) {
 
     if(pos >= get_size(head)) {
         cout << "Invalid Position" << endl;
-        insert_tail(head, tail, v);
+        insertTail(head, tail, v);
         cout << "Inserted at Tail" << endl;
         return;
     } else if(pos == 0) {
@@ -132,7 +132,7 @@ void insert_linked_list (Node *& head, Node *& tail) {
         if(val == -1) {
             break;
         } else {
-            insert_tail(head, tail, val);
+            insertTail(head, tail, val);
         }
     }
 }
@@ -181,7 +181,7 @@ int main () {
             cout << "Enter Value" << " ";
             int val;
             cin >> val;
-            insert_tail(head, tail, val);
+            insertTail(head, tail, val);
             cout << endl;
         } else if(op == 2) {
             cout << "Enter Value" << " ";
@@ -209,14 +209,14 @@ int main () {
             cout << endl;
             delete_at_position(head, tail, pos);
         } else if(op == 7) {
-            print_normal(head);
+            printLinkedList(head);
         } else if(op == 8) {
             print_reverse(tail);
         } else if(op == 9) {
             sort_linked_list(head, true);
         } else if(op == 10) {
             sort_linked_list(head, false);
-        } else if(op == 11) {
+        }  else if(op == 11) {
             cout << "Program Terminated" << endl << endl;
             break;
         } else {
